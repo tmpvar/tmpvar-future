@@ -1,5 +1,32 @@
 {
+  "name": "tmpvar-future",
+  "version": "0.1.0",
+  "description": "stupid simple future implementation",
+  "main": "tmpvar-future.js",
+  "dependencies": {
+    "tape": "^3.0.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmpvar/tmpvar-future.git"
+  },
+  "keywords": [
+    "future",
+    "defer",
+    "promise",
+    "control",
+    "flow"
+  ],
+  "author": "Elijah Insua <tmpvar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmpvar/tmpvar-future/issues"
+  },
+  "homepage": "https://github.com/tmpvar/tmpvar-future",
   "devDependencies": {
     "tape": "^3.0.0"
-  }
+  },
 }
