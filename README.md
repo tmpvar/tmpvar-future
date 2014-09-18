@@ -29,12 +29,12 @@ setTimeout(function() {
   f(funtion(e, r) {
   	console.log(r); // outputs: 1
   });
-});
+}, 100);
 
 ```
 
-that is it! 
+that is it!
 
-## license 
+## license
 
 [MIT](LICENSE.txt)
