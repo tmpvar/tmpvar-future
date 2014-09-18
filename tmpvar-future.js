@@ -9,7 +9,7 @@ function next(fn) {
   if (!nextTickHandlers.length) {
     process.nextTick(function() {
       while (nextTickHandlers.length) {
-        nextTickHandlers.pop()();
+        nextTickHandlers.shift()();
       }
     });
   }
@@ -25,7 +25,7 @@ function createFuture() {
 
   function notifyWatchers() {
     while (watchers.length) {
-      watchers.pop()(error, value);
+      watchers.shift()(error, value);
     }
     resolved = true;
   }
