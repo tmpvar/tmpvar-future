@@ -1,6 +1,6 @@
 {
   "name": "tmpvar-future",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "stupid simple future implementation",
   "main": "tmpvar-future.js",
   "scripts": {
