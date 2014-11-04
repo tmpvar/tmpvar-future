@@ -17,23 +17,34 @@ function next(fn) {
   nextTickHandlers.push(fn);
 }
 
-function createFuture() {
+function createFuture(retrigger) {
   var watchers = [];
   var value = null;
   var error = null;
   var resolved = false;
 
   function notifyWatchers() {
-    while (watchers.length) {
-      watchers.shift()(error, value);
+    if (retrigger) {
+      var l = watchers.length;
+      for (var i=0; i<l; i++) {
+        watchers[i](error, value);
+      }
+    } else {
+      while (watchers.length) {
+        watchers.shift()(error, value);
+      }
+      resolved = true;
     }
-    resolved = true;
   }
 
   function future(e, r) {
     if (typeof e === 'function') {
       if (resolved) {
-        e(error, value)
+        e(error, value);
+
+        if (retrigger) {
+          watchers.push(e);
+        }
       } else {
         watchers.push(e);
       }
@@ -47,6 +58,7 @@ function createFuture() {
     // enable "chaining"
     return future;
   }
+
 
   future.isFuture = true;
 

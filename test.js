@@ -75,3 +75,19 @@ test('late binding', function(t) {
     });
   });
 });
+
+test('retrigger', function(t) {
+  var f = future(true);
+  var count = 0;
+  f(function() {
+    count++;
+  });
+
+  f(null, 1);
+  f(null, 1);
+  f(null, 1);
+  setTimeout(function() {
+    t.equal(count, 3);
+    t.end();
+  }, 0);
+});
